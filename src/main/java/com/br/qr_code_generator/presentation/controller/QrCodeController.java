@@ -25,12 +25,13 @@ public class QrCodeController {
 
         try {
 
-            QrCodeGeneratorResponse response = this.service.generateQrCode(request.text());
+            QrCodeGeneratorResponse response = this.service.generateAndUploadQrCode(request.text());
 
             return ResponseEntity.ok(response);
 
         } catch (Exception e) {
-
+            
+            System.out.println(e);
             return ResponseEntity.internalServerError().build();
             
         }
